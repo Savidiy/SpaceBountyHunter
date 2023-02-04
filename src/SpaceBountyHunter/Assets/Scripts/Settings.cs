@@ -9,6 +9,7 @@ namespace BountyHunter
         public ShipHierarchy ShipPrefab;
         public float CameraDistanceOffset;
         public float CameraAngleOffset;
+        public float BackgroundStep = 1024;
 
         [Title("Speed")]
         public float RotateMaxSpeed = 10f;

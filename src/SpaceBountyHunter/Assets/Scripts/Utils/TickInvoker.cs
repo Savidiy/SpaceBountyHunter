@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using Zenject;
 
-namespace BountyHunter
+namespace BountyHunter.Utils
 {
     public class TickInvoker : ITickable, ILateTickable
     {

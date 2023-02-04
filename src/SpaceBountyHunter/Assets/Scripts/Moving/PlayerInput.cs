@@ -1,3 +1,4 @@
+using BountyHunter.Utils;
 using UnityEngine;
 
 namespace BountyHunter

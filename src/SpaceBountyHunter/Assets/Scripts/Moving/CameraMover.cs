@@ -1,4 +1,5 @@
 using System;
+using BountyHunter.Utils;
 using UnityEngine;
 
 namespace BountyHunter

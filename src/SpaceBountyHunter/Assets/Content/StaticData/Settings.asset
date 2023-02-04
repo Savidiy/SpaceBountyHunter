@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Settings
   m_EditorClassIdentifier: 
   ShipPrefab: {fileID: 6279492215446623562, guid: 56033c4dfaccbe24d8942acf7cbaa40b, type: 3}
-  CameraDistanceOffset: 3.14
+  CameraDistanceOffset: 4.01
   CameraAngleOffset: -90
+  BackgroundStep: 20.48
   RotateMaxSpeed: 250
   RotateAcceleration: 700
   StrafeMaxSpeed: 10
