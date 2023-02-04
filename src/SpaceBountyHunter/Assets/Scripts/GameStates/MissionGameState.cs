@@ -1,24 +1,40 @@
-using UnityEngine;
-
 namespace BountyHunter
 {
     public sealed class MissionGameState : IGameState
     {
+        private readonly PlayerHolder _playerHolder;
+
+        public MissionGameState(PlayerHolder playerHolder)
+        {
+            _playerHolder = playerHolder;
+        }
+
         public void Enter()
         {
-            Debug.Log("Show space window");
+            CreatePlayerShip();
+            // ActivatePlayerControls();
+            // JoinCameraToPlayerShip();
+        }
 
+        private void CreatePlayerShip()
+        {
+            _playerHolder.CreatePlayer();
         }
 
         public void Exit()
         {
-            Debug.Log("Hide space window");
+            DestroyPlayerShip();
+            // DeactivatePlayerControls();
+            // UnjoinCamera();
+        }
 
+        private void DestroyPlayerShip()
+        {
+            _playerHolder.DestroyPlayer();
         }
 
         public void Dispose()
         {
-            
         }
     }
 }

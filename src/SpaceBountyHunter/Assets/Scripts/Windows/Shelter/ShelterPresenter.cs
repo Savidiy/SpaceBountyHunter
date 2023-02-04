@@ -13,10 +13,37 @@ namespace BountyHunter
         {
             _gameProgressProvider = gameProgressProvider;
             _gameStateMachine = gameStateMachine;
-            _shelterWindowView = Object.FindObjectOfType<ShelterWindowView>();
+            _shelterWindowView = Object.FindObjectOfType<ShelterWindowView>(true);
             _shelterWindowView.HideWindow();
+        }
 
+        public void ShowWindow()
+        {
+            _shelterWindowView.ShowWindow(_gameProgressProvider.Progress);
+            AddListeners();
+        }
+
+        public void HideWindow()
+        {
+            _shelterWindowView.HideWindow();
+            RemoveListeners();
+        }
+
+        public void Dispose()
+        {
+            RemoveListeners();
+        }
+
+        private void AddListeners()
+        {
             _shelterWindowView.MenuClicked += OnMenuClicked;
+            _shelterWindowView.StartMissionClicked += OnStartMissionClicked;
+        }
+
+        private void RemoveListeners()
+        {
+            _shelterWindowView.MenuClicked -= OnMenuClicked;
+            _shelterWindowView.StartMissionClicked -= OnStartMissionClicked;
         }
 
         private void OnMenuClicked()
@@ -25,19 +52,10 @@ namespace BountyHunter
             _gameStateMachine.EnterToState<MenuGameState>();
         }
 
-        public void ShowWindow()
+        private void OnStartMissionClicked()
         {
-            _shelterWindowView.ShowWindow(_gameProgressProvider.Progress);
-        }
-
-        public void HideWindow()
-        {
-            _shelterWindowView.HideWindow();
-        }
-
-        public void Dispose()
-        {
-            _shelterWindowView.MenuClicked -= OnMenuClicked;
+            _gameProgressProvider.SaveProgress();
+            _gameStateMachine.EnterToState<MissionGameState>();
         }
     }
 }

@@ -10,10 +10,12 @@ namespace BountyHunter
         [SerializeField] private TMP_Text _moneyLabel;
         [SerializeField] private Button _testButton;
         [SerializeField] private Button _menuButton;
+        [SerializeField] private Button _startMissionButton;
         
         private Progress _progress;
         
         public event Action MenuClicked;
+        public event Action StartMissionClicked;
 
         public void ShowWindow(Progress progress)
         {
@@ -25,10 +27,19 @@ namespace BountyHunter
             
         }
 
+        public void HideWindow()
+        {
+            gameObject.SetActive(false);
+            _testButton.onClick.RemoveListener(OnTestClick);
+            _menuButton.onClick.RemoveListener(OnMenuClick);
+            _startMissionButton.onClick.RemoveListener(OnStartMissionClick);
+        }
+
         private void AddListeners()
         {
             _testButton.onClick.AddListener(OnTestClick);
             _menuButton.onClick.AddListener(OnMenuClick);
+            _startMissionButton.onClick.AddListener(OnStartMissionClick);
         }
 
         private void OnMenuClick()
@@ -41,16 +52,15 @@ namespace BountyHunter
             _moneyLabel.text = _progress.Money.ToString();
         }
 
+        private void OnStartMissionClick()
+        {
+            StartMissionClicked?.Invoke();
+        }
+
         private void OnTestClick()
         {
             _progress.Money++;
             UpdateFields();
-        }
-
-        public void HideWindow()
-        {
-            gameObject.SetActive(false);
-            _testButton.onClick.RemoveListener(OnTestClick);
         }
     }
 }
