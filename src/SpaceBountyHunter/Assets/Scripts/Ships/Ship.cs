@@ -69,7 +69,6 @@ namespace BountyHunter
 
             float maxStrafeSpeedDelta = _shipSettings.StrafeAcceleration * deltaTime;
             StrafeSpeed = Mathf.MoveTowards(StrafeSpeed, targetStrafeSpeed, maxStrafeSpeedDelta);
-            Debug.Log($"ForwardSpeed = {ForwardSpeed:F1}, strafe speed = {StrafeSpeed:F1}");
         }
 
         private void UpdatePosition(float deltaTime)
