@@ -1,18 +1,18 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace BountyHunter.Editor
+namespace BountyHunter.Utils.Editor
 {
     public static class PlayerPrefsReset
     {
-        [MenuItem("Tools/Reset player prefs")]
+        [MenuItem("Tools/Prefs/Reset player prefs")]
         public static void ResetPlayerPrefs()
         {
             PlayerPrefs.DeleteAll();
             Debug.Log("Player Prefs cleared");
         }
 
-        [MenuItem("Tools/Reset editor prefs")]
+        [MenuItem("Tools/Prefs/Reset editor prefs")]
         public static void ResetEditorPrefs()
         {
             EditorPrefs.DeleteAll();
