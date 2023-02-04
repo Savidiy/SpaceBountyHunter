@@ -3,6 +3,14 @@ using UnityEngine;
 
 namespace BountyHunter
 {
+    internal sealed class ClearPrefs
+    {
+        public void Clear()
+        {
+            
+        }
+    }
+    
     public sealed class GameProgressProvider
     {
         private const string KEY = "progress";
@@ -12,10 +20,12 @@ namespace BountyHunter
 
         public bool HasSavedProgress { get; private set; }
         public bool HasCurrentProgress { get; private set; }
+        public Progress Progress => _progress;
 
         public GameProgressProvider(Serializer<Progress> serializer)
         {
             _serializer = serializer;
+            HasSavedProgress = PlayerPrefs.HasKey(KEY);
         }
 
         public void SaveProgress()

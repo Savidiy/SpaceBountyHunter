@@ -9,6 +9,7 @@ namespace BountyHunter
         public override void InstallBindings()
         {
             Container.Bind<MainMenuPresenter>().FromInstance(MainMenuPresenter).AsSingle();
+            Container.Bind<ShelterPresenter>().AsSingle();
         }
     }
 }

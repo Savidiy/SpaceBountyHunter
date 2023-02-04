@@ -1,24 +1,26 @@
-using UnityEngine;
-
 namespace BountyHunter
 {
     public sealed class ShelterGameState : IGameState
     {
+        private readonly ShelterPresenter _shelterPresenter;
+
+        public ShelterGameState(ShelterPresenter shelterPresenter)
+        {
+            _shelterPresenter = shelterPresenter;
+        }
+
         public void Enter()
         {
-            Debug.Log("Show shelter window");
-
+            _shelterPresenter.ShowWindow();
         }
 
         public void Exit()
         {
-            Debug.Log("Hide shelter window");
-
+            _shelterPresenter.HideWindow();
         }
 
         public void Dispose()
         {
-            
         }
     }
 }
