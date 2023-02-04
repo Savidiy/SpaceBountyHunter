@@ -2,7 +2,7 @@ using Zenject;
 
 namespace BountyHunter
 {
-    internal sealed class BootstrapInstaller : MonoInstaller
+    internal sealed class BootstrapInstaller : Installer<BootstrapInstaller>
     {
         public override void InstallBindings()
         {

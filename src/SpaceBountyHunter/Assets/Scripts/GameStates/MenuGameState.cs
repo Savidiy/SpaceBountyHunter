@@ -1,17 +1,22 @@
-﻿using UnityEngine;
-
-namespace BountyHunter
+﻿namespace BountyHunter
 {
     public sealed class MenuGameState : IGameState
     {
+        private readonly MainMenuPresenter _mainMenuPresenter;
+
+        public MenuGameState(MainMenuPresenter mainMenuPresenter)
+        {
+            _mainMenuPresenter = mainMenuPresenter;
+        }
+
         public void Enter()
         {
-            Debug.Log("Show menu window");
+            _mainMenuPresenter.ShowWindow();
         }
 
         public void Exit()
         {
-            Debug.Log("Hide menu window");
+            _mainMenuPresenter.HideWindow();
         }
 
         public void Dispose()
