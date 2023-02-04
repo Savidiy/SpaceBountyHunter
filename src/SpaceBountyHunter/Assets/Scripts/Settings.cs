@@ -7,6 +7,8 @@ namespace BountyHunter
     public class Settings : ScriptableObject
     {
         public ShipHierarchy ShipPrefab;
+        public float CameraDistanceOffset;
+        public float CameraAngleOffset;
 
         [Title("Speed")]
         public float RotateMaxSpeed = 10f;
@@ -16,7 +18,6 @@ namespace BountyHunter
         public float ForwardMaxSpeed = 10f;
         public float ForwardAcceleration = 1f;
         public float BackwardMaxSpeed = -3f;
-        public float BackwardAcceleration = 1f;
         
         
         [Title("Input")]
@@ -34,6 +35,5 @@ namespace BountyHunter
         public KeyCode PlayerRotateRightAlternativeKey = KeyCode.Keypad6;
         public KeyCode PlayerMoveForwardAlternativeKey = KeyCode.Keypad8;
         public KeyCode PlayerMoveBackwardAlternativeKey = KeyCode.Keypad5;
-
     }
 }

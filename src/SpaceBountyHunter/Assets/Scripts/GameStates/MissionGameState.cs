@@ -5,9 +5,11 @@ namespace BountyHunter
         private readonly PlayerHolder _playerHolder;
         private readonly PlayerInput _playerInput;
         private readonly ShipMover _shipMover;
+        private CameraMover _cameraMover;
 
-        public MissionGameState(PlayerHolder playerHolder, PlayerInput playerInput, ShipMover shipMover)
+        public MissionGameState(PlayerHolder playerHolder, PlayerInput playerInput, ShipMover shipMover, CameraMover cameraMover)
         {
+            _cameraMover = cameraMover;
             _playerHolder = playerHolder;
             _playerInput = playerInput;
             _shipMover = shipMover;
@@ -18,12 +20,12 @@ namespace BountyHunter
             _playerHolder.CreatePlayer();
             _playerInput.Activate();
             _shipMover.Activate();
-            // JoinCameraToPlayerShip();
+            _cameraMover.Activate();
         }
 
         public void Exit()
         {
-            // UnjoinCamera();
+            _cameraMover.Deactivate();
             _shipMover.Deactivate();
             _playerInput.Deactivate();
             _playerHolder.DestroyPlayer();
